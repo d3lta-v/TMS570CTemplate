@@ -9,9 +9,9 @@ cmake_minimum_required( VERSION 3.18.4 )
 include(cmake/ti_toolchain.cmake)
 
 project( TMS570CTemplate
-		DESCRIPTION "Project template for TMS570LS122 microcontroller"
+		DESCRIPTION "Project template for TMS570LC4357 microcontroller"
 		VERSION 1.0.0
-		LANGUAGES C ASM
+		LANGUAGES C CXX ASM
 )
 
 # Patch to TI.cmake to link the program
@@ -32,7 +32,7 @@ include( ${WORK_DIR}/cmake/project.cmake)
 # Project content
 # ===================================================================
 
-add_executable( ${EXEC_NAME} ${WORK_DIR}/main.c )
+add_executable( ${EXEC_NAME} ${WORK_DIR}/HL_sys_main.c )
 
 add_subdirectory( ${WORK_DIR}/BSP )
 
@@ -62,8 +62,9 @@ add_custom_command(
 				${CMAKE_C_COMPILER} --preproc_only --c_extension=.ld  ${PRE_LINKER_SCRIPT} --output_file=${LINKER_SCRIPT}
 				# GNU
 				#${CMAKE_C_COMPILER} -E -P -x c ${PRE_LINKER_SCRIPT} -o ${LINKER_SCRIPT}
-		DEPENDS 
-				${PRE_LINKER_SCRIPT}
+		# The operation below is deprecated
+#		DEPENDS
+#				${PRE_LINKER_SCRIPT}
 )
 
 # Not supported by TI compiler
@@ -81,7 +82,8 @@ add_custom_command(
 		TARGET ${EXEC_NAME} POST_BUILD
 		COMMAND
 				${CMAKE_OBJCOPY} -O ihex ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/${EXEC_NAME}${CMAKE_EXECUTABLE_SUFFIX} ${OUTPUT_HEX}
-		DEPENDS 
-			${EXEC_NAME}
+		# The operation below is deprecated
+#		DEPENDS
+#			${EXEC_NAME}
 )
 
