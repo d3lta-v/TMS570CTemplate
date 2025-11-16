@@ -5,9 +5,9 @@
 cmake_minimum_required( VERSION 3.18.4 )
 
 project( TMS570BSP_TiBaremetal
-		DESCRIPTION "Baremetal TMS570LS122 BSP generated from HALGCode (Ti ARM CGT)"
+		DESCRIPTION "Baremetal TMS570LC4357 BSP generated from HALGCode (Ti ARM CGT)"
 		VERSION 1.0.0
-		LANGUAGES C ASM
+		LANGUAGES C CXX ASM
 )
 
 set(COMPONENT_NAME BSP)
@@ -18,39 +18,42 @@ set(CURRENT_COMPONENT_NAME ${COMPONENT_NAME}_${SUBCOMPONENT_VARIANT}_${SUBCOMPON
 
 add_library(${CURRENT_COMPONENT_NAME} OBJECT
 		# ASM
-		${CMAKE_CURRENT_LIST_DIR}/source/dabort.asm
-		${CMAKE_CURRENT_LIST_DIR}/source/sys_core.asm
-		${CMAKE_CURRENT_LIST_DIR}/source/sys_intvecs.asm
-		${CMAKE_CURRENT_LIST_DIR}/source/sys_mpu.asm
-		${CMAKE_CURRENT_LIST_DIR}/source/sys_pmu.asm
+		# ${CMAKE_CURRENT_LIST_DIR}/source/dabort.s # doesn't exist in the current HALCoGen version
+		${CMAKE_CURRENT_LIST_DIR}/source/HL_sys_core.asm
+		${CMAKE_CURRENT_LIST_DIR}/source/HL_sys_intvecs.asm
+		${CMAKE_CURRENT_LIST_DIR}/source/HL_sys_mpu.asm
+		${CMAKE_CURRENT_LIST_DIR}/source/HL_sys_pmu.asm
 		# C
-		${CMAKE_CURRENT_LIST_DIR}/source/adc.c
-		${CMAKE_CURRENT_LIST_DIR}/source/can.c
-		${CMAKE_CURRENT_LIST_DIR}/source/crc.c
-		${CMAKE_CURRENT_LIST_DIR}/source/dcc.c
-		${CMAKE_CURRENT_LIST_DIR}/source/ecap.c
-		${CMAKE_CURRENT_LIST_DIR}/source/eqep.c
-		${CMAKE_CURRENT_LIST_DIR}/source/errata_SSWF021_45.c
-		${CMAKE_CURRENT_LIST_DIR}/source/esm.c
-		${CMAKE_CURRENT_LIST_DIR}/source/etpwm.c
-		${CMAKE_CURRENT_LIST_DIR}/source/gio.c
-		${CMAKE_CURRENT_LIST_DIR}/source/het.c
-		${CMAKE_CURRENT_LIST_DIR}/source/i2c.c
-		${CMAKE_CURRENT_LIST_DIR}/source/lin.c
-		${CMAKE_CURRENT_LIST_DIR}/source/mibspi.c
-		${CMAKE_CURRENT_LIST_DIR}/source/notification.c
-		${CMAKE_CURRENT_LIST_DIR}/source/pinmux.c
-		${CMAKE_CURRENT_LIST_DIR}/source/rti.c
-		${CMAKE_CURRENT_LIST_DIR}/source/sci.c
-		${CMAKE_CURRENT_LIST_DIR}/source/spi.c
-		${CMAKE_CURRENT_LIST_DIR}/source/sys_dma.c
-		${CMAKE_CURRENT_LIST_DIR}/source/sys_pcr.c
-		${CMAKE_CURRENT_LIST_DIR}/source/sys_phantom.c
-		${CMAKE_CURRENT_LIST_DIR}/source/sys_pmm.c
-		${CMAKE_CURRENT_LIST_DIR}/source/sys_selftest.c
-		${CMAKE_CURRENT_LIST_DIR}/source/sys_startup.c
-		${CMAKE_CURRENT_LIST_DIR}/source/system.c
-		${CMAKE_CURRENT_LIST_DIR}/source/sys_vim.c
+		# ${CMAKE_CURRENT_LIST_DIR}/source/adc.c
+		# ${CMAKE_CURRENT_LIST_DIR}/source/can.c
+		# ${CMAKE_CURRENT_LIST_DIR}/source/crc.c
+		# ${CMAKE_CURRENT_LIST_DIR}/source/dcc.c
+		# ${CMAKE_CURRENT_LIST_DIR}/source/ecap.c
+		# ${CMAKE_CURRENT_LIST_DIR}/source/eqep.c
+		${CMAKE_CURRENT_LIST_DIR}/source/HL_epc.c
+		${CMAKE_CURRENT_LIST_DIR}/source/HL_errata_SSWF021_45.c
+		${CMAKE_CURRENT_LIST_DIR}/source/HL_errata.c
+		${CMAKE_CURRENT_LIST_DIR}/source/HL_esm.c
+		# ${CMAKE_CURRENT_LIST_DIR}/source/etpwm.c
+		${CMAKE_CURRENT_LIST_DIR}/source/HL_gio.c
+		${CMAKE_CURRENT_LIST_DIR}/source/HL_nmpu.c
+		# ${CMAKE_CURRENT_LIST_DIR}/source/het.c
+		# ${CMAKE_CURRENT_LIST_DIR}/source/i2c.c
+		# ${CMAKE_CURRENT_LIST_DIR}/source/lin.c
+		# ${CMAKE_CURRENT_LIST_DIR}/source/mibspi.c
+		${CMAKE_CURRENT_LIST_DIR}/source/HL_notification.c
+		${CMAKE_CURRENT_LIST_DIR}/source/HL_pinmux.c
+		# ${CMAKE_CURRENT_LIST_DIR}/source/rti.c
+		# ${CMAKE_CURRENT_LIST_DIR}/source/sci.c
+		# ${CMAKE_CURRENT_LIST_DIR}/source/spi.c
+		${CMAKE_CURRENT_LIST_DIR}/source/HL_sys_dma.c
+		${CMAKE_CURRENT_LIST_DIR}/source/HL_sys_pcr.c
+		${CMAKE_CURRENT_LIST_DIR}/source/HL_sys_phantom.c
+		${CMAKE_CURRENT_LIST_DIR}/source/HL_sys_pmm.c
+		# ${CMAKE_CURRENT_LIST_DIR}/source/sys_selftest.c
+		${CMAKE_CURRENT_LIST_DIR}/source/HL_sys_startup.c
+		${CMAKE_CURRENT_LIST_DIR}/source/HL_sys_vim.c
+		${CMAKE_CURRENT_LIST_DIR}/source/HL_system.c
 )
 
 target_include_directories(${CURRENT_COMPONENT_NAME} PUBLIC

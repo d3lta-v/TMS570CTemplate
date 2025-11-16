@@ -7,7 +7,7 @@ cmake_minimum_required( VERSION 3.18.4 )
 project( F021
 		DESCRIPTION "F021 Flash API Version 2.01.01"
 		VERSION 2.01.01
-		LANGUAGES C ASM
+		LANGUAGES C CXX ASM
 )
 
 set(COMPONENT_NAME BSP)

@@ -7,7 +7,7 @@ cmake_minimum_required( VERSION 3.18.4 )
 project( TMS570BSPFreeRTOS
 		DESCRIPTION "FreeRTOS TMS570LS122 BSP generated from HALGCode"
 		VERSION 1.0.0
-		LANGUAGES C ASM
+		LANGUAGES C CXX ASM
 )
 
 set(COMPONENT_NAME BSP)
