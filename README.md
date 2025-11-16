@@ -1,6 +1,6 @@
 # TMS570CTemplate
 
-A template for projects based on the TMS570 microcontroller (Launchpad XL2, TMS570LS1224).
+A template for projects based on the TMS570 microcontroller (Launchpad XL2, TMS570LC4357).
 
 # Toolchain
 
