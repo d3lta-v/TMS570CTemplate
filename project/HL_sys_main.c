@@ -63,7 +63,8 @@
 */
 
 /* USER CODE BEGIN (2) */
-#define DELAY_VALUE 100000000UL
+#define DELAY_VALUE_LONG 50000000UL
+#define DELAY_VALUE_SHORT 1000000UL
 /* USER CODE END */
 
 int main(void)
@@ -72,11 +73,15 @@ int main(void)
     int i;
 
     gioInit();
-    gioPORTB->DIR = (0x01 << 6);  //configure GIOB[6] as output
+
+    //configure GIOB[6] as output
+    gioSetDirection(gioPORTB, (0x01 << 6));
 
     for (;;) {
-        gioToggleBit(gioPORTB, 6);
-        for (i = 0; i < DELAY_VALUE; i++);
+        gioSetBit(gioPORTB, 6U, 1U);
+        for (i = 0; i < DELAY_VALUE_SHORT; i++) {}
+        gioSetBit(gioPORTB, 6U, 0U);
+        for (i = 0; i < DELAY_VALUE_LONG; i++) {}
     }
 /* USER CODE END */
 
