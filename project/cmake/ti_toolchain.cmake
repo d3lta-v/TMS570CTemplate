@@ -65,9 +65,9 @@ set(CMAKE_ASM_FLAGS_DEBUG "-g" CACHE INTERNAL "ASM Compiler options for debug bu
 set(CMAKE_EXE_LINKER_FLAGS_DEBUG "" CACHE INTERNAL "Linker options for debug build type")
 
 # Options for RELEASE build
-# -O3   Optimize for size. -Os enables all -O2 optimizations.
+# -O2   Optimize for size.
 # -flto Runs the standard link-time optimizer.
-set(CMAKE_C_FLAGS_RELEASE "-O3 -flto" CACHE INTERNAL "C Compiler options for release build type")
-set(CMAKE_CXX_FLAGS_RELEASE "-O3 -flto" CACHE INTERNAL "C++ Compiler options for release build type")
+set(CMAKE_C_FLAGS_RELEASE "-O2 -flto" CACHE INTERNAL "C Compiler options for release build type")
+set(CMAKE_CXX_FLAGS_RELEASE "-O2 -flto" CACHE INTERNAL "C++ Compiler options for release build type")
 set(CMAKE_ASM_FLAGS_RELEASE "" CACHE INTERNAL "ASM Compiler options for release build type")
 set(CMAKE_EXE_LINKER_FLAGS_RELEASE "-flto" CACHE INTERNAL "Linker options for release build type")

@@ -10,7 +10,7 @@ set(CMAKE_SYSTEM_NAME Generic)
 set(CMAKE_SYSTEM_PROCESSOR ARM)
 
 set(TOOLCHAIN ti-cgt-arm)
-set(TOOLCHAIN_PREFIX "C:/ti/ccs1230/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS")
+set(TOOLCHAIN_PREFIX "C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS")
 set(TOOLCHAIN_BIN_DIR ${TOOLCHAIN_PREFIX}/bin)
 set(TOOLCHAIN_INC_DIR ${TOOLCHAIN_PREFIX}/include)
 set(TOOLCHAIN_LIB_DIR ${TOOLCHAIN_PREFIX}/lib)
