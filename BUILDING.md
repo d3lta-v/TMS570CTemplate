@@ -57,4 +57,4 @@ Add the flash map file located in `project/cmake` called `ti_tms570lc43_cfg.ld`.
 
 ## Done!
 
-Now you're done! Try compiling your program in CLion.
+Now you're done! Try compiling your program in CLion. If you run into any trouble, try right clicking the top level `CMakeLists.txt` and clicking "Reload CMake Project" to force a reload. Deleting the CMake-generated `build` folder might also help.
